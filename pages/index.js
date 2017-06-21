@@ -1,13 +1,17 @@
 import React from 'react'
-import Head from 'next/head'
 import AudioComponent from '../components/player/AudioComponent'
-import { playlist, getSongById, ADD_SONG, REMOVE_SONG } from '../components/player/songs'
-import PreLoginHeader from '../components/header/PreLoginHeader'
+import {playlist, getSongById, ADD_SONG, REMOVE_SONG} from '../components/player/songs'
 import MusicPlayer from '../components/player/MusicPlayer'
 import Directory from '../components/Directory'
 import SearchSong from '../components/SearchSong'
 import SongTable from '../components/SongTable'
-import { songs } from '../components/player/songs'
+import {songs} from '../components/player/songs'
+import PreLoginLayout from '../components/PreLoginLayout'
+import {Button} from 'react-bootstrap'
+import Link from 'next/link'
+import ArtistProfile from '../components/ArtistProfile'
+import AlbumProfile from '../components/AlbumProfile'
+import fetch from 'isomorphic-unfetch'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +20,18 @@ class App extends React.Component {
       playlist: [],
       songs: songs
     };
+  }
+  static async getInitialProps(context) {
+    const { id } = context.query
+    const getInitialPropsId = id;
+    var searchShow = 'batman';
+    const res = await fetch(`http://api.tvmaze.com/search/shows?q=${searchShow}`)
+    const show = await res.json()
+    console.log("Shows : " + show.length);
+    return { getInitialPropsId, show }
+  }
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
   }
   filterDirectory(event) {
     var searchSongByName = event.target.value;
@@ -68,28 +84,54 @@ class App extends React.Component {
         console.log('INVALID_ACTION: ' + actionId);
     }
   }
+  getProfile(role, id) {
+    switch (role) {
+      case 'artist':
+        return (<ArtistProfile id={id} />)
+      case 'album':
+        return (<AlbumProfile id={id}/>)
+      default:
+        return (<div>No Profile Selected</div>)
+    }
+  }
   render() {
+    console.log("Shows : " + this.props.show.length);
     return (
       <div>
-        <Head>
-          <title>React Audio Player</title>
-          <meta charSet='utf-8'/>
-          <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
-        </Head>
-        <PreLoginHeader/>
-        <div style={{
-          "padding": "65px 15px 50px 15px"
-        }}>
-        <Directory>
-          <SearchSong filterDirectory={this.filterDirectory.bind(this)}/>
-          <SongTable songs={this.state.songs} sortById={true} changePlaylist={this.changePlaylist.bind(this)} actionId={ADD_SONG} actionText={'Add'}/>
-        </Directory>
+        <h1>React Audio Player</h1>
+        <PreLoginLayout playlist={this.state.playlist}>
+          getInitialPropsId : {this.props.getInitialPropsId}
+          {this.getProfile(this.props.url.query.role, this.props.url.query.id)}
+          <ul>
+            <li>
+              <Link href='/?id=1&role=album' as='/album/1'>
+                <a>Album 1</a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/?id=2&role=artist' as='/artist/2'>
+                <a>Artist 2</a>
+              </Link>
+            </li>
+          </ul>
+          <Directory>
+            <SearchSong filterDirectory={this.filterDirectory.bind(this)}/>
+            <SongTable songs={this.state.songs} sortById={true} changePlaylist={this.changePlaylist.bind(this)} actionId={ADD_SONG} actionText={'Add'}/>
+          </Directory>
+          <Button bsStyle="link" onClick={() => {
+            this.props.url.push({
+              pathname: '/aboutus',
+              query: {
+                'id': '1'
+              }
+            })}}>
+            About Us
+          </Button>
           <MusicPlayer>
             <SongTable songs={this.state.playlist} sortById={false} changePlaylist={this.changePlaylist.bind(this)} actionId={REMOVE_SONG} actionText={'Remove'}/>
           </MusicPlayer>
-        </div>
-        <AudioComponent playlist={this.state.playlist}/>
+        </PreLoginLayout>
+
       </div>
     );
   }

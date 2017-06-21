@@ -6,7 +6,8 @@ import {
   Grid,
   Row,
   Col,
-  Glyphicon
+  Glyphicon,
+  ControlLabel
 } from 'react-bootstrap'
 
 class SearchSong extends React.Component {
@@ -19,10 +20,11 @@ class SearchSong extends React.Component {
       <Grid>
         <Row className="show-grid">
           <Col md={12}>
-            <FormGroup>
+            <FormGroup controlId="searchSongForm">
+              <ControlLabel htmlFor="searchSong">Search</ControlLabel>
               <InputGroup>
                 <InputGroup.Addon><Glyphicon glyph="music"/></InputGroup.Addon>
-                <FormControl type="text" placeholder="Search your favorite song..."
+                <FormControl id="searchSong" type="text" placeholder="Search your favorite song..."
                 onChange={this.props.filterDirectory.bind(this)}/>
               </InputGroup>
             </FormGroup>

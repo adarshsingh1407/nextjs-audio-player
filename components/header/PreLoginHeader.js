@@ -1,5 +1,6 @@
 import React from 'react'
-import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
+import Router from 'next/router'
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Button} from 'react-bootstrap'
 
 class PreLoginHeader extends React.Component {
   constructor(props) {
@@ -12,10 +13,22 @@ class PreLoginHeader extends React.Component {
         <Navbar inverse collapseOnSelect fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">React Audio Player</a>
+              <a href="/">React Audio Player</a>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>
+          <Navbar.Collapse>
+            <Navbar.Text>
+              <Button bsStyle="link"
+                onClick={() => {
+                  Router.push({
+                    pathname: '/aboutus',
+                    query: {'id': '1'}
+                    // query: this.props.playlist
+                  })
+                }}>About Us</Button>
+            </Navbar.Text>
+          </Navbar.Collapse>
         </Navbar>
       </div>
     );

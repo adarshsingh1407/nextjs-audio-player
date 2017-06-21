@@ -30,7 +30,7 @@ class SongTable extends React.Component {
                 <td className="text-center">{song.id}</td>
                 <td className="text-center">{song.name}</td>
                 <td className="text-center"><i>{song.artist}</i></td>
-                <td className="text-center"><Image src={song.img} thumbnail style={{"maxHeight":"40px"}} /></td>
+                <td className="text-center"><Image src={song.img} alt={song.alt} thumbnail style={{"maxHeight":"40px"}} /></td>
                 <td className="text-center">
                   <div>
                     <Button bsSize="small"

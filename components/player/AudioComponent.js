@@ -5,6 +5,7 @@ const Audio = dynamic(import ('react-audioplayer'), { ssr: false })
 class AudioComponent extends React.Component {
   constructor(props){
   	super(props);
+    console.log('AudioComponent');
   	this.state = {};
   }
   render(){

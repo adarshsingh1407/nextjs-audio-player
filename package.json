@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "keywords": [
     "audio-player",
@@ -16,6 +16,9 @@
   "author": "adarshsingh1407",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.15.3",
+    "isomorphic-unfetch": "^1.0.0",
     "next": "^3.0.0-beta3",
     "react": "^15.4.2",
     "react-audioplayer": "^0.2.3",
