@@ -14,12 +14,12 @@ class Album extends React.Component {
           <div>Album</div>
           <ul>
             <li>
-              <Link href='/album?id=1' as='/album'>
+              <Link href='/?id=1&role=album' as='/album/1'>
                 <a>Album</a>
               </Link>
             </li>
             <li>
-              <Link href='/artist?id=2' as='/album'>
+              <Link href='/?id=2&role=artist' as='/artist/2'>
                 <a>Artist</a>
               </Link>
             </li>

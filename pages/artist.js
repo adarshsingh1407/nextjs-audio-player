@@ -19,7 +19,7 @@ class Artist extends React.Component {
               </Link>
             </li>
             <li>
-              <Link href='/artist' as='/artist'>
+              <Link href='/?id=2&role=artist' as='/artist/2'>
                 <a>Artist</a>
               </Link>
             </li>

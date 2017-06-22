@@ -20,11 +20,11 @@ class SearchSong extends React.Component {
       <Grid>
         <Row className="show-grid">
           <Col md={12}>
-            <FormGroup controlId="searchSongForm">
-              <ControlLabel htmlFor="searchSong">Search</ControlLabel>
+            <FormGroup>
+              <ControlLabel>Search</ControlLabel>
               <InputGroup>
                 <InputGroup.Addon><Glyphicon glyph="music"/></InputGroup.Addon>
-                <FormControl id="searchSong" type="text" placeholder="Search your favorite song..."
+                <FormControl id="searchSong" type="text" placeholder="Search by title/artist..."
                 onChange={this.props.filterDirectory.bind(this)}/>
               </InputGroup>
             </FormGroup>

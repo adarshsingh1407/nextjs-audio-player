@@ -19,7 +19,10 @@ class PreLoginLayout extends React.Component {
           <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
           {/* <link rel="stylesheet" defer href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/> */}
         </Head>
-        <PreLoginHeader playlist={this.props.playlist}/> {this.props.children}
+        <PreLoginHeader playlist={this.props.playlist}/>
+        <div>
+          {this.props.children}
+        </div>
         <AudioComponent playlist={this.props.playlist}/>
       </div>
     );

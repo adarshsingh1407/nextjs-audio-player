@@ -16,13 +16,13 @@ export default class MyDocument extends Document {
          <style>{`body { margin: 0 } /* custom! */`}</style>
          <meta name="theme-color" content="#333333" />
          <link rel="manifest" href="/static/manifest.json" />
+         {/* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" /> */}
        </Head>
        <body className="custom_class">
-         {/* {this.props.customValue} */}
          <Main />
          <NextScript />
          <script type="text/javascript" src="/static/cssLoader.js" />
-         <script type="text/javascript" src="/static/swLoader.js" />
+         <script defer type="text/javascript" src="/static/swLoader.js" />
        </body>
      </html>
     )

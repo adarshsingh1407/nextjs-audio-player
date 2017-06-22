@@ -21,6 +21,7 @@ app.prepare().then(() => {
   }
 
   server.get('/artist/:id', (req, res) => {
+    console.log('req.params.id : ' + req.params.id);
     var newQuery = req.query;
     newQuery.id = req.params.id;
     newQuery.role = 'artist';
@@ -28,6 +29,7 @@ app.prepare().then(() => {
   })
 
   server.get('/album/:id', (req, res) => {
+    console.log('req.params.id : ' + req.params.id);
     var newQuery = req.query;
     newQuery.id = req.params.id;
     newQuery.role = 'album';
