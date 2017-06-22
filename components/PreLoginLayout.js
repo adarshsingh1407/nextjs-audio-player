@@ -14,7 +14,7 @@ class PreLoginLayout extends React.Component {
         "padding": "65px 15px 50px 15px"
       }}>
         <Head>
-          <title>React Audio Player</title>
+          <title>Next Audio Player</title>
           <meta charSet='utf-8'/>
           <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
           {/* <link rel="stylesheet" defer href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/> */}

@@ -98,7 +98,6 @@ class App extends React.Component {
     console.log("Shows : " + this.props.show.length);
     return (
       <div>
-        <h1>React Audio Player</h1>
         <PreLoginLayout playlist={this.state.playlist}>
           getInitialPropsId : {this.props.getInitialPropsId}
           {this.getProfile(this.props.url.query.role, this.props.url.query.id)}

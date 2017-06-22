@@ -13,7 +13,7 @@ class PreLoginHeader extends React.Component {
         <Navbar inverse collapseOnSelect fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="/">React Audio Player</a>
+              <a href="/">Next Audio Player</a>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>
@@ -30,6 +30,7 @@ class PreLoginHeader extends React.Component {
             </Navbar.Text>
           </Navbar.Collapse>
         </Navbar>
+        <h1>Next Audio Player</h1>
       </div>
     );
   }
