@@ -20,7 +20,7 @@ class SearchSong extends React.Component {
       <Grid>
         <Row className="show-grid">
           <Col md={12}>
-            <FormGroup>
+            <FormGroup controlId="searchSong">
               <ControlLabel>Search</ControlLabel>
               <InputGroup>
                 <InputGroup.Addon><Glyphicon glyph="music"/></InputGroup.Addon>

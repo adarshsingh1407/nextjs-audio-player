@@ -1,11 +1,11 @@
 var CACHE_NAME = 'nap-cache-v1';
 var urlsToCache = [
-  '/',
-  'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css',
-  '/_next/e21c2fb7-e367-4810-a423-3b7a94f6366f/page/',
-  '/_next/e21c2fb7-e367-4810-a423-3b7a94f6366f/page/_error/index.js',
-  '/_next/2247d85c96681a38f10fd03ef3779aed/app.js',
-  '/static/swLoader.js'
+  '/'
+  // 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css',
+  // '/_next/e21c2fb7-e367-4810-a423-3b7a94f6366f/page/',
+  // '/_next/e21c2fb7-e367-4810-a423-3b7a94f6366f/page/_error/index.js',
+  // '/_next/2247d85c96681a38f10fd03ef3779aed/app.js',
+  // '/static/swLoader.js'
 ];
 
 self.addEventListener('install', function(event) {

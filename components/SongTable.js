@@ -30,13 +30,14 @@ class SongTable extends React.Component {
                 <td className="text-right">{song.id}</td>
                 <td className="text-left">{song.name}</td>
                 <td className="text-left"><i>{song.artist}</i></td>
-                <td className="text-center"><Image src={song.img} alt={song.alt} thumbnail style={{"maxHeight":"40px"}} /></td>
+                <td className="text-center"><Image src={song.img} alt={song.alt} rounded style={{"maxHeight":"40px"}} /></td>
                 <td className="text-center">
                   <div>
                     <Button bsSize="small"
-                      bsStyle={ADD_SONG === this.props.actionId ? 'primary' : 'danger'}
-                      onClick={this.props.changePlaylist.bind(this, this.props.actionId, song.id)}>
-                      <Glyphicon glyph={this.props.actionText} style={{"color": "white"}} />
+                      bsStyle={ADD_SONG === this.props.action.id ? 'primary' : 'danger'}
+                      onClick={this.props.changePlaylist.bind(this, this.props.action.id, song.id)}>
+                      <Glyphicon glyph={this.props.action.glyph} style={{"color": "white"}}  />
+                      &nbsp;{this.props.action.text}
                     </Button>
                   </div>
                 </td>

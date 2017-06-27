@@ -109,10 +109,10 @@ class App extends React.Component {
       <PreLoginLayout playlist={this.state.playlist}>
         <Directory>
           <SearchSong filterDirectory={this.filterDirectory.bind(this)}/>
-          <SongTable songs={this.state.songs} sortById={true} changePlaylist={this.changePlaylist.bind(this)} actionId={ADD_SONG} actionText={'plus-sign'}/>
+          <SongTable songs={this.state.songs} sortById={true} changePlaylist={this.changePlaylist.bind(this)} action={{id: ADD_SONG, text:'Add', glyph: 'plus-sign'}}/>
         </Directory>
         <MusicPlayer>
-          <SongTable songs={this.state.playlist} sortById={false} changePlaylist={this.changePlaylist.bind(this)} actionId={REMOVE_SONG} actionText={'minus-sign'}/>
+          <SongTable songs={this.state.playlist} sortById={false} changePlaylist={this.changePlaylist.bind(this)} action={{id: REMOVE_SONG, text:'Remove', glyph: 'minus-sign'}}/>
         </MusicPlayer>
       </PreLoginLayout>
     );

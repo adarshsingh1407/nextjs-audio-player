@@ -11,6 +11,8 @@ app.prepare().then(() => {
 
   server.use(compression({filter: shouldCompress}))
 
+  server.use('/', express.static('static'))
+
   function shouldCompress(req, res) {
     if (req.headers['x-no-compression']) {
       // don't compress responses with this request header
